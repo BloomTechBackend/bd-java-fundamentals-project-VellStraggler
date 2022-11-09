@@ -8,6 +8,7 @@ import main.com.adventure.world.objects.keys.Key;
 
 public class Player {
 
+    private String name = "Default Dave";
     public int level = 5;
     private int currentLocationIndex = AppSettings.getStartingLocation();
     private Key key;
@@ -22,7 +23,7 @@ public class Player {
      * @param newName - the player's name that will be saved
      */
     public void setName(String newName) {
-
+        name = newName;
     }
 
     /**
@@ -32,9 +33,8 @@ public class Player {
      * @return The name of the player
      */
     public String getName() {
-        return "";
+        return name;
     }
-
     /**
      * Sprint 1 Module 3
      * The canOpenDoor is calculated by taking the player's level and dividing it by 2.
@@ -42,7 +42,7 @@ public class Player {
      * @return true if the player's level is enough to open the door.
      */
     public boolean canOpenDoor() {
-        return false;
+        return (level/2 > 2);
     }
 
 
