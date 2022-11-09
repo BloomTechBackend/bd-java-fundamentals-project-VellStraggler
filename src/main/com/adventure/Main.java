@@ -13,7 +13,7 @@ public class Main {
         Main.scanner = scanner;
     }
 
-    static Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+    private static Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
 
     /**
      * The main function that gets run when the program starts.
