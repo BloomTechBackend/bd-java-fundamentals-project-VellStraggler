@@ -8,7 +8,7 @@ import main.com.adventure.world.objects.keys.Key;
 
 public class Player {
 
-    private String name;
+    private String name = "";
     public int level = 5;
     private int currentLocationIndex = AppSettings.getStartingLocation();
     private Key key;
@@ -18,13 +18,13 @@ public class Player {
 
     /**
      * Sprint 1 Module 3
-     * Saves the player's name. This file should store the name so it can be referenced later. After setting the name,
+     * Saves the player's name. This file should store the name, so it can be referenced later. After setting the name,
      * inform the user that the name has been changed by saying "Your name is now {name}".
      * @param newName - the player's name that will be saved
      */
     public void setName(String newName) {
-        name = newName;
-        System.out.println("Your name is now " + name);
+        this.name = newName;
+        System.out.println("Your name is now " + this.name);
     }
 
     /**
@@ -34,7 +34,7 @@ public class Player {
      * @return The name of the player
      */
     public String getName() {
-        return name;
+        return this.name;
     }
     /**
      * Sprint 1 Module 3
@@ -43,13 +43,8 @@ public class Player {
      * @return true if the player's level is enough to open the door.
      */
     public boolean canOpenDoor() {
-        return (level/2 > 2);
+        return this.level / 2 > 2;
     }
-
-
-
-
-
     /**
      * Sprint 1 Module 4
      * The move function takes two parameters: a direction string and an isValidDirection boolean.
