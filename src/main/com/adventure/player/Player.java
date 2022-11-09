@@ -43,7 +43,7 @@ public class Player {
      * @return true if the player's level is enough to open the door.
      */
     public boolean canOpenDoor() {
-        return (this.level > 4);
+        return this.level > 4;
     }
     /**
      * Sprint 1 Module 4
@@ -64,7 +64,17 @@ public class Player {
      * @return true if the move is executed. Otherwise, false.
      */
     public boolean move(String direction, boolean isValidDirection) {
-        return true;
+        if(isValidDirection) {
+            if(direction.equalsIgnoreCase("west")) {
+                currentLocationIndex--;
+            } else if(direction.equalsIgnoreCase("east")) {
+                currentLocationIndex++;
+            }
+            return true;
+        } else{
+            System.out.println(direction + " is not a valid direction");
+            return false;
+        }
     }
 
     /**
