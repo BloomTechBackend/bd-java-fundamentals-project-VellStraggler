@@ -8,13 +8,13 @@ import main.com.adventure.world.objects.keys.Key;
 
 public class Player {
 
-    private String name = "";
     public int level = 5;
     private int currentLocationIndex = AppSettings.getStartingLocation();
     private Key key;
     private Shovel shovel;
     private int power = 1;
     private int health = 10;
+    private String name = "";
 
     /**
      * Sprint 1 Module 3
@@ -43,7 +43,7 @@ public class Player {
      * @return true if the player's level is enough to open the door.
      */
     public boolean canOpenDoor() {
-        return this.level / 2 > 2;
+        return (this.level > 4);
     }
     /**
      * Sprint 1 Module 4
