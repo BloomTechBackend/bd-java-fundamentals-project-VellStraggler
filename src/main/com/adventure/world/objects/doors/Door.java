@@ -24,19 +24,19 @@ public class Door implements Tangible {
         isOpen = false;
         level = 1;
     }
+
     /**
-     * Create a door with a particular level and openness in mind.
-     * @param isOpen: boolean
-     * @param level: int
+     * Create a door that is open or closed at a given level.
+     * @param isOpen - boolean.
+     * @param level - any integer.
      */
     public Door(boolean isOpen, int level) {
         this.isOpen = isOpen;
         this.level = level;
     }
-    private boolean isKeyValid(Key key) {
-        //TODO Update doorLevel so it references the level of this door
-        int doorLevel = level;
 
+    private boolean isKeyValid(Key key) {
+        int doorLevel = level;
         return key != null && key.getLevel() == doorLevel;
     }
 
@@ -51,11 +51,6 @@ public class Door implements Tangible {
     public void setIsOpen(boolean newOpenState) {
         this.isOpen = newOpenState;
     }
-
-
-
-
-
 
     //******IGNORE THE CODE BELOW******//
 

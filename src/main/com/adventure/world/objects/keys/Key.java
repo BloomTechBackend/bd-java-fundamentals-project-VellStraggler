@@ -32,33 +32,33 @@ public class Key implements Tangible {
 
     /**
      * Creates a key with a particular level in mind.
-     * @param inpLevel:int
+     * @param level - any integer.
      */
-    public Key(int inpLevel) {
-        level = inpLevel;
+    public Key(int level) {
+        this.level = level;
     }
 
     /**
      * Creates a key with a particular level and name in mind.
-     * @param inpLevel:int
-     * @param inpKey:String
+     * @param level - any integer.
+     * @param key - a name in String format.
      */
-    public Key(int inpLevel, String inpKey) {
-        level = inpLevel;
-        name = inpKey;
+    public Key(int level, String key) {
+        this.level = level;
+        name = key;
     }
 
     /**
      * Get the level of a key.
-     * @return level
+     * @return level - an integer.
      */
     public int getLevel() {
         return level;
     }
 
     /**
-     * Get the name of a key
-     * @return name
+     * Get the name of a key.
+     * @return name - a key name in String format.
      */
     @Override
     public String getName() {
