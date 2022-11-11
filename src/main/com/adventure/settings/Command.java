@@ -2,7 +2,7 @@ package main.com.adventure.settings;
 
 public class Command {
 
-    private String verb;
+    private CommandVerb verb;
     private String objectName;
 
     /**
@@ -11,7 +11,7 @@ public class Command {
      * @param objectName - the object(s) to which the command is directed.
      */
     public Command(String verb, String objectName) {
-        this.verb = verb;
+        this.verb = CommandVerb.getVerb(verb);
         this.objectName = objectName;
     }
 
@@ -20,7 +20,7 @@ public class Command {
      * @param verb - the verb of the command
      */
     public Command(String verb) {
-        this.verb = verb;
+        this.verb = CommandVerb.getVerb(verb);
         this.objectName = "";
     }
 
@@ -32,12 +32,12 @@ public class Command {
         this.objectName = objectName;
     }
 
-    public String getVerb() {
+    public CommandVerb getVerb() {
         return verb;
     }
 
     public void setVerb(String verb) {
-        this.verb = verb;
+        this.verb = CommandVerb.getVerb(verb);
     }
 
     @Override
