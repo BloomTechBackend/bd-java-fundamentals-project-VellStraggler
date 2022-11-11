@@ -1,7 +1,7 @@
 package main.com.adventure.player;
-
-import com.amazonaws.services.dynamodbv2.xspec.M;
 import main.com.adventure.world.objects.Tangible;
+//import com.amazonaws.services.dynamodbv2.xspec.M;
+
 
 /**
  * Stores any Tangible item up to the MAX_CAPACITY.
@@ -22,7 +22,7 @@ public class Backpack {
         //so no special for loops can be used.
 
         for (int i = 0; i < MAX_CAPACITY; i++) {
-            if (items[i] == null){
+            if (items[i] == null) {
                 items[i] = item;
                 return true;
             }
@@ -37,7 +37,7 @@ public class Backpack {
      */
     public Tangible getItem(String name) {
         for (int i = 0; i < MAX_CAPACITY; i++) {
-            if (items[i] == null){
+            if (items[i] == null) {
                 break;
             }
             if (items[i].getName().equals(name)) {
@@ -57,7 +57,7 @@ public class Backpack {
         for (int i = 0; i < MAX_CAPACITY; i++){
             if (items[i].getName().equals(item.getName())) {
                 for (int m = i + 1; m < MAX_CAPACITY; m++) {
-                    items[m-1] = items[m];
+                    items[m - 1] = items[m];
                     items[m] = null;
                 }
                 return true;
@@ -77,7 +77,7 @@ public class Backpack {
     public void printItems() {
         String itemsString = "Here are the items in your backpack:\n";
         for (int i = 0; i < MAX_CAPACITY; i++) {
-            if (items[i] == null){
+            if (items[i] == null) {
                 break;
             }
             itemsString = itemsString + " - " + items[i].getName() + "\n";

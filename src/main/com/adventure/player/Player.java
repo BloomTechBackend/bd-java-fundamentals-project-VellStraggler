@@ -126,10 +126,18 @@ public class Player {
         backpack.addItem(item);
     }
 
+    /**
+     * Put a key in the backpack of the player.
+     * @param item - type: Key.
+     */
     public void setKey(Key item) {
         backpack.addItem(item);
     }
 
+    /**
+     * Take a key with the name "key" out of the backpack and return it.
+     * @return - type: Key.
+     */
     public Tangible getKey() {
         return backpack.getItem("key");
     }

@@ -36,7 +36,7 @@ public class CombatController {
     }
 
     public boolean isPlayerDefeated() {
-        return (player.getHealth() <= 0);
+        return player.getHealth() <= 0;
     }
 
     /**
