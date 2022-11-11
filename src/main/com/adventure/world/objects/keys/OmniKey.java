@@ -35,6 +35,7 @@ public class OmniKey implements Tangible {
             System.out.println(this.getName() + " configured to " + door.getName() + ".");
         } else {
             System.out.println("This key can only be used with OmniDoors.");
+            // gradle kind of sucks.
         }
     }
 
