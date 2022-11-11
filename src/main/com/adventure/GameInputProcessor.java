@@ -31,9 +31,11 @@ public class GameInputProcessor {
      * @return - the Command object with the proper verb and blank object
      */
     private Command buildSimpleCommand(String input) {
-        if(input.contains(" ")) {
-            return new Command(input.substring(0, input.indexOf(" ")));}
-        return new Command(input); // has no space
+        if (input.contains(" ")) {
+            return new Command(input.substring(0, input.indexOf(" ")));
+        }
+        return new Command(input);
+        // has no space
     }
 
     /**

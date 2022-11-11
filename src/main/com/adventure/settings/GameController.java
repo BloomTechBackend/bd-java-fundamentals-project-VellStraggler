@@ -144,8 +144,11 @@ public class GameController {
             case TAKE:
                 take(command.getObjectName());
                 break;
+            case INVENTORY:
+                player.printItems();
             default:
                 printInvalidCommand();
+                break;
         }
     }
 
