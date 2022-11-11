@@ -10,6 +10,10 @@ public class Main {
     private static GameController controller = new GameController();
     private static Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
 
+    private static void setScanner(Scanner scanner) {
+        Main.scanner = scanner;
+    }
+
     /**
      * The main function that gets run when the program starts.
      * @param args - command line args (no valid commands).

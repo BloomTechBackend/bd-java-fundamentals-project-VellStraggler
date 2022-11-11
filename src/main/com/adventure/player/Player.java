@@ -14,15 +14,17 @@ public class Player {
     private Shovel shovel;
     private int power = 1;
     private int health = 10;
+    private String name = "";
 
     /**
      * Sprint 1 Module 3
-     * Saves the player's name. This file should store the name so it can be referenced later. After setting the name,
+     * Saves the player's name. This file should store the name, so it can be referenced later. After setting the name,
      * inform the user that the name has been changed by saying "Your name is now {name}".
      * @param newName - the player's name that will be saved
      */
     public void setName(String newName) {
-
+        this.name = newName;
+        System.out.println("Your name is now " + this.name);
     }
 
     /**
@@ -32,9 +34,8 @@ public class Player {
      * @return The name of the player
      */
     public String getName() {
-        return "";
+        return this.name;
     }
-
     /**
      * Sprint 1 Module 3
      * The canOpenDoor is calculated by taking the player's level and dividing it by 2.
@@ -42,13 +43,8 @@ public class Player {
      * @return true if the player's level is enough to open the door.
      */
     public boolean canOpenDoor() {
-        return false;
+        return this.level > 4;
     }
-
-
-
-
-
     /**
      * Sprint 1 Module 4
      * The move function takes two parameters: a direction string and an isValidDirection boolean.
@@ -68,7 +64,17 @@ public class Player {
      * @return true if the move is executed. Otherwise, false.
      */
     public boolean move(String direction, boolean isValidDirection) {
-        return true;
+        if (isValidDirection) {
+            if (direction.equalsIgnoreCase("west")) {
+                currentLocationIndex--;
+            } else if (direction.equalsIgnoreCase("east")) {
+                currentLocationIndex++;
+            }
+            return true;
+        } else {
+            System.out.println(direction + " is not a valid direction");
+            return false;
+        }
     }
 
     /**
