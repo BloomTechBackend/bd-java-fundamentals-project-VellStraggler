@@ -9,7 +9,7 @@ public class HoleContent {
     /**
      * Create what goes in a hole.
      * (hint: It will always be a key)
-     * @param key
+     * @param key - of type Key.
      */
     public HoleContent(Key key) {
         content = key;
