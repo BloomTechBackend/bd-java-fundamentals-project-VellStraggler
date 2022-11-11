@@ -54,7 +54,7 @@ public class Backpack {
      * @return - true if the item was removed. Otherwise, false.
      */
     public boolean removeItem(Tangible item) {
-        for (int i = 0; i < MAX_CAPACITY; i++){
+        for (int i = 0; i < MAX_CAPACITY; i++) {
             if (items[i].getName().equals(item.getName())) {
                 for (int m = i + 1; m < MAX_CAPACITY; m++) {
                     items[m - 1] = items[m];

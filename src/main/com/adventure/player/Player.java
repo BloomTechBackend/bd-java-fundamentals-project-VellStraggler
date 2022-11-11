@@ -142,10 +142,18 @@ public class Player {
         return backpack.getItem("key");
     }
 
+    /**
+     * Put a shovel in the player's backpack.
+     * @param item - type Shovel.
+     */
     public void setShovel(Shovel item) {
         backpack.addItem(item);
     }
 
+    /**
+     * Return a shovel with the name "shovel".
+     * @return - type Shovel.
+     */
     public Tangible getShovel() {
         return backpack.getItem("shovel");
     }
