@@ -52,12 +52,23 @@ public class OmniDoor implements Tangible {
      *      "The door is unlocked!"
      *
      * If a pin is not correct, then randomizePins is called and the
-     * look is immediately stopped.
+     * lock is immediately stopped.
      *
      * @param key - the key that will be used to attempt to unlock the door
      */
     public void unlock(OmniKey key) {
-        //TODO Complete the function
+        boolean wrong = false;
+        for (int p = 0; p < pinCount; p++) {
+            if (key.pins[p] != pins[p]) {
+                wrong = true;
+                randomizePins();
+                break;
+            }
+        }
+        if (!wrong) {
+            isOpen = true;
+            System.out.println("The door is unlocked!");
+        }
     }
 
     /**
@@ -75,8 +86,12 @@ public class OmniDoor implements Tangible {
      * all are correct.
      */
     public int getFirstWrongPin(OmniKey key) {
-        //TODO Complete the function
-        return 0;
+        for (int p = 0; p < pinCount; p++) {
+            if (key.pins[p] != pins[p]) {
+                return p;
+            }
+        }
+        return -1;
     }
 
     //Tangible implementation//
@@ -105,11 +120,10 @@ public class OmniDoor implements Tangible {
     public void useItem(Tangible initiator) {
         if (!(initiator instanceof OmniKey)) {
             if (initiator instanceof Key) {
-                System.out.println("Try using and OmniKey instead.");
+                System.out.println("Try using an OmniKey instead.");
             }
             return;
         }
-
         unlock((OmniKey) initiator);
     }
 
