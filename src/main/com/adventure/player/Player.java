@@ -10,8 +10,7 @@ public class Player {
 
     public int level = 5;
     private int currentLocationIndex = AppSettings.getStartingLocation();
-    private Key key;
-    private Shovel shovel;
+    private Backpack backpack = new Backpack();
     private int power = 1;
     private int health = 10;
     private String name = "";
@@ -84,7 +83,7 @@ public class Player {
      * @param item - the weapon that will be used to adjust the player's power.
      */
     public void setWeapon(Weapon item) {
-        //TODO Complete this function in Sprint 3 Module 1
+        power = item.getPower();
     }
 
     /**
@@ -94,8 +93,7 @@ public class Player {
      * @return the item or null if the item does not exist
      */
     public Tangible getItem(String itemName) {
-        //TODO Complete this function in Sprint 3 Module 2
-        return null;
+        return backpack.getItem(itemName);
     }
 
     /**
@@ -105,7 +103,9 @@ public class Player {
      * @return the removed item
      */
     public Tangible removeItem(Tangible item) {
-        //TODO Complete this function in Sprint 3 Module 2
+        if (backpack.removeItem(item)) {
+            return item;
+        }
         return null;
     }
 
@@ -114,7 +114,7 @@ public class Player {
      * Prints the backpack's inventory.
      */
     public void printItems() {
-        //TODO Complete this function in Sprint 3 Module 2
+        backpack.printItems();
     }
 
     /**
@@ -123,23 +123,23 @@ public class Player {
      * @param item - item to add.
      */
     public void addItem(Tangible item) {
-        //TODO Complete this function
+        backpack.addItem(item);
     }
 
     public void setKey(Key item) {
-        key = item;
+        backpack.addItem(item);
     }
 
-    public Key getKey() {
-        return key;
+    public Tangible getKey() {
+        return backpack.getItem("key");
     }
 
     public void setShovel(Shovel item) {
-        shovel = item;
+        backpack.addItem(item);
     }
 
-    public Shovel getShovel() {
-        return shovel;
+    public Tangible getShovel() {
+        return backpack.getItem("shovel");
     }
 
     //////// DON'T CHANGE THE CODE BELOW. ///////////

@@ -1,5 +1,6 @@
 package main.com.adventure.player;
 
+import com.amazonaws.services.dynamodbv2.xspec.M;
 import main.com.adventure.world.objects.Tangible;
 
 /**
@@ -17,7 +18,15 @@ public class Backpack {
      * @return - true if the item is added. Otherwise, false.
      */
     public boolean addItem(Tangible item) {
-        //TODO Complete the function
+        //We don't know whether the items in the array are Tangibles or null,
+        //so no special for loops can be used.
+
+        for (int i = 0; i < MAX_CAPACITY; i++) {
+            if (items[i] == null){
+                items[i] = item;
+                return true;
+            }
+        }
         return false;
     }
 
@@ -27,17 +36,33 @@ public class Backpack {
      * @return - the item if it exists. Otherwise, null.
      */
     public Tangible getItem(String name) {
-        //TODO Complete the function
+        for (int i = 0; i < MAX_CAPACITY; i++) {
+            if (items[i] == null){
+                break;
+            }
+            if (items[i].getName().equals(name)) {
+                return items[i];
+            }
+        }
         return null;
     }
 
     /**
      * Checks if the given item exists in the backpack based on the item's name, and removes the item if it's found.
+     * Moves items down so that all empty spots are at the end.
      * @param item - item to remove
      * @return - true if the item was removed. Otherwise, false.
      */
     public boolean removeItem(Tangible item) {
-        //TODO Complete the function
+        for (int i = 0; i < MAX_CAPACITY; i++){
+            if (items[i].getName().equals(item.getName())) {
+                for (int m = i + 1; m < MAX_CAPACITY; m++) {
+                    items[m-1] = items[m];
+                    items[m] = null;
+                }
+                return true;
+            }
+        }
         return false;
     }
 
@@ -50,6 +75,13 @@ public class Backpack {
      * Then each item should be printed with " - " before it.
      */
     public void printItems() {
-        //TODO Complete the function
+        String itemsString = "Here are the items in your backpack:\n";
+        for (int i = 0; i < MAX_CAPACITY; i++) {
+            if (items[i] == null){
+                break;
+            }
+            itemsString = itemsString + " - " + items[i].getName() + "\n";
+        }
+        System.out.println(itemsString);
     }
 }
