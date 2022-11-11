@@ -21,26 +21,45 @@ public class Key implements Tangible {
     private int level;
     private String name;
 
-    //TODO Add default (i.e. no params) constructor here
+
+    /**
+     * Create a new key with a default level of 1 and the name: "key".
+     */
     public Key() {
         level = 1;
         name = "key";
     }
-    //TODO add constructor that takes a level, and saves it
-    public Key(int inpLevel){
+
+    /**
+     * Creates a key with a particular level in mind.
+     * @param inpLevel:int
+     */
+    public Key(int inpLevel) {
         level = inpLevel;
     }
+
+    /**
+     * Creates a key with a particular level and name in mind.
+     * @param inpLevel:int
+     * @param inpKey:String
+     */
     public Key(int inpLevel, String inpKey) {
         level = inpLevel;
         name = inpKey;
     }
-    //TODO add constructor that takes a level and name, and saves it
+
+    /**
+     * Get the level of a key.
+     * @return level
+     */
     public int getLevel() {
-        //TODO Fix this so it references the level property instead of 0
         return level;
     }
 
-    //TODO Fix this so it references the name property instead of "key"
+    /**
+     * Get the name of a key
+     * @return name
+     */
     @Override
     public String getName() {
         return name;
